@@ -318,6 +318,96 @@ header.page-title hr {
   height: calc(100vh - 140px);
   overflow: auto;
 }
+.page aside {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  z-index: 2;
+  right: 0;
+  bottom: 80px;
+  background-color: var(--gray-12);
+  border-bottom: var(--gray-3) 1px solid;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+}
+.page aside header {
+  font-size: 32px;
+  color: var(--dark-0);
+  height: 130px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.page aside section {
+  padding: 0 var(--space);
+  display: none;
+  flex: 1;
+  max-height: calc(100vh - 339px);
+  overflow-y: auto;
+}
+.page aside section table {
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: var(--gray-3) 1px solid;
+}
+.page aside section table td {
+  padding: var(--space) 0;
+  border-top: var(--gray-3) 1px solid;
+}
+.page aside section table td.price {
+  text-align: right;
+}
+.page aside footer {
+  height: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space);
+  font-size: 18px;
+  color: var(--dark-0);
+}
+.page aside footer .total {
+  font-weight: bold;
+  margin-left: var(--space);
+  text-align: right;
+}
+.page aside footer button {
+  min-width: 130px;
+  border: none;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  background: transparent;
+  min-width: 50px;
+  width: 50px;
+}
+.page aside footer button:hover {
+  background-color: var(--black-10);
+}
+.page aside footer button:active {
+  background-color: var(--black-75);
+}
+.page aside footer button svg {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+.page aside.open {
+  height: calc(100vh - 158px);
+}
+.page aside.open header, .page aside.open section {
+  display: flex;
+}
+.page aside.open footer button svg {
+  transform: rotate(180deg);
+}
 .page .page-title {
   margin: var(--space);
   width: calc(100% - calc(var(--space) * 2));
@@ -335,6 +425,11 @@ header.page-title hr {
   font-size: 23px;
   font-weight: bold;
   text-transform: uppercase;
+}
+.page > header h1 small {
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
 }
 .page > main {
   margin-bottom: 80px;
@@ -500,6 +595,33 @@ header.page-title hr {
   }
   .page > header h1 {
     font-size: 32px;
+  }
+  .page aside, .page aside.open {
+    width: 375px;
+    height: calc(100vh - 118px);
+    z-index: 4;
+    bottom: 0;
+  }
+  .page aside header, .page aside section, .page aside.open header, .page aside.open section {
+    display: flex;
+  }
+  .page aside header, .page aside.open header {
+    height: 160px;
+  }
+  .page aside footer, .page aside.open footer {
+    height: 80px;
+  }
+  .page aside footer button, .page aside.open footer button {
+    display: none;
+  }
+  .page aside footer > div, .page aside.open footer > div {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+  }
+  .page aside footer > div .total, .page aside.open footer > div .total {
+    font-size: 29px;
   }
   .page footer.fixed {
     justify-content: flex-start;
@@ -1743,6 +1865,69 @@ header.page-title hr {
 }
 #schedules-services .options:hover .square > div {
   opacity: 0.2;
+}
+
+#schedule-summary form {
+  margin-top: var(--space);
+}
+
+#schedule-payment {
+  position: relative;
+}
+#schedule-payment > header {
+  height: 260px;
+  min-height: 260px;
+  position: relative;
+}
+#schedule-payment > header h1 {
+  display: none;
+}
+#schedule-payment > main {
+  align-items: center;
+}
+#schedule-payment > main form {
+  max-width: 100%;
+}
+#schedule-payment > main form .form-creditcard {
+  margin-top: var(--space);
+}
+#schedule-payment > main form .form-creditcard .form-fields {
+  flex-direction: column;
+  width: 100%;
+}
+#schedule-payment > main form .form-creditcard .form-fields .fields {
+  flex-direction: row;
+  justify-content: space-between;
+}
+#schedule-payment > main form .form-creditcard .form-fields .fields .field {
+  width: calc(50% - calc(var(--space) / 2));
+}
+#schedule-payment > main form .form-creditcard .form-card {
+  position: absolute;
+  top: 32px;
+  width: 100%;
+  left: 0;
+  justify-content: center;
+  perspective: 1000px;
+}
+#schedule-payment > main form .form-creditcard .form-card .faces {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  width: 300px;
+}
+#schedule-payment > main form .form-creditcard .form-card .faces.flipped {
+  transform: rotateY(180deg);
+}
+#schedule-payment > main form .form-creditcard .form-card .faces svg {
+  width: 300px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+#schedule-payment > main form .form-creditcard .form-card .faces svg.back .name {
+  text-transform: uppercase;
+}
+#schedule-payment > main form .form-creditcard .form-card .faces .back {
+  transform: rotateY(180deg);
 }
 
 /*# sourceMappingURL=main.css.map */
