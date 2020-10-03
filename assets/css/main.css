@@ -1221,6 +1221,19 @@ header.page-title hr {
   #home .gallery {
     flex-direction: row;
   }
+  #home > header ul {
+    display: flex;
+    color: var(--white);
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  #home > header ul li + li {
+    margin-left: calc(var(--space) * 2);
+  }
+  #home > header h1 {
+    margin-top: unset;
+  }
 }
 @media (min-width: 1200px) {
   #home {
@@ -1928,6 +1941,67 @@ header.page-title hr {
 }
 #schedule-payment > main form .form-creditcard .form-card .faces .back {
   transform: rotateY(180deg);
+}
+
+@media (min-width: 1200px) {
+  #schedule-payment {
+    position: initial;
+  }
+  #schedule-payment > header {
+    height: 160px;
+    min-height: 160px;
+  }
+  #schedule-payment > header h1 {
+    display: block;
+  }
+  #schedule-payment > main {
+    align-items: flex-start;
+  }
+  #schedule-payment > main form {
+    max-width: 900px;
+    justify-content: space-between;
+  }
+  #schedule-payment > main form .form-creditcard .form-card {
+    position: initial;
+    justify-content: center;
+    padding-left: var(--space);
+  }
+  #schedule-payment > main form .form-creditcard .form-card .faces {
+    width: 100%;
+    margin-top: -17px;
+  }
+  #schedule-payment > main form .form-creditcard .form-card .faces.flipped {
+    transform: translateX(-76px) rotateY(180deg);
+  }
+  #schedule-payment > main form .form-creditcard .form-card .faces svg {
+    width: 300px;
+  }
+}
+#schedules-success section {
+  flex-direction: column;
+  margin-left: var(--space);
+  color: var(--gray-0);
+  font-size: 22px;
+}
+#schedules-success section span:first-child {
+  margin-bottom: 30px;
+}
+#schedules-success section small {
+  font-size: 16px;
+}
+#schedules-success footer.fixed {
+  justify-content: center;
+}
+#schedules-success footer.fixed a {
+  padding: 0 var(--space);
+  background-color: var(--green);
+  color: var(--white);
+}
+
+@media (min-width: 1200px) {
+  #schedules-success footer.fixed {
+    justify-content: flex-start;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
