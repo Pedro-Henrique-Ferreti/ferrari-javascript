@@ -78,70 +78,71 @@
         <hr class="italy">
     </header>
 
-    <section class="page" id="profile">
+    <section id="time-options" class="page blue">
 
         <header>
-            <h1>Editar Dados</h1>
+            <h1>Escolha o horário</h1>
         </header>
 
         <main>
-
             <header class="page-title">
-                <h2>Dados Pessoais</h2>
-                <hr>
+                <h2>Horários do Dia</h2>
+                <hr />
             </header>
-
-            <form>
-
-                <div class="field">
-                    <input type="text" name="name" id="name" value="Pedro Henrique" readonly>
-                    <label for="name">Nome Completo</label>
-                </div>
-
-                <div class="field">
-                    <input type="email" name="email" id="email">
-                    <label for="email">Email</label>
-                </div>
-
-                <div class="field">
-                    <input type="date" name="birth_at" id="birth_at">
-                    <label for="birth_at">Data de Nascimento</label>
-                </div>
-
-                <div class="fields">
-
-                    <div class="field">
-                        <input type="text" name="document" id="document">
-                        <label for="document">Documento</label>
-                    </div>
-
-                    <div class="field">
-                        <input type="tel" name="phone" id="phone">
-                        <label for="phone">Telefone</label>
-                    </div>
-
-                </div>
-
-                <div class="toast success">
-                    Dados salvos com sucesso!
-                    <button type="button" class="close">
-                        <span>&times;</span>
-                    </button>
-                </div>
-
-                <footer class="fixed">
-    
-                    <button type="submit">Salvar</button>
-        
-                </footer>
-            </form>
-
         </main>
 
+        <form action="schedules-services.html">
+
+            <h3>Quinta, 23 de julho de 2020</h3>
+
+            <div class="options">
+
+                <label>
+                    <input type="radio" name="option" value="9:00" checked/>
+                    <span>9:00</span>
+                </label>
+
+                <label>
+                    <input type="radio" name="option" value="10:00" checked/>
+                    <span>10:00</span>
+                </label>
+
+                <label>
+                    <input type="radio" name="option" value="11:00" checked/>
+                    <span>11:00</span>
+                </label>
+
+                <label>
+                    <input type="radio" name="option" value="12:00" checked/>
+                    <span>12:00</span>
+                </label>
+
+                <label>
+                    <input type="radio" name="option" value="13:00" checked/>
+                    <span>13:00</span>
+                </label>
+
+                <label>
+                    <input type="radio" name="option" value="14:00" checked/>
+                    <span>14:00</span>
+                </label>
+
+                <label>
+                    <input type="radio" name="option" value="15:00" checked/>
+                    <span>15:00</span>
+                </label>
+                
+            </div>
+
+            <footer class="fixed">
+                <a href="schedules-new.html">Voltar</a>
+                <button type="submit">Continuar</button>
+            </footer>
+
+        </form>
     </section>
-
-
-   
+    
+    <script src="bundle.js"></script>
     
 </body>
 </html>

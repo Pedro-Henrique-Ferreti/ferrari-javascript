@@ -78,47 +78,59 @@
         <hr class="italy">
     </header>
 
-    <section class="page" id="change-photo">
-
+   <section id="schedules-success" class="page green">
         <header>
-            <h1>Mudar Foto</h1>
+            <h1>Pagamento Efetuado</h1>
         </header>
+       <main>
 
-        <main>
+            <header class="page-title">
+                <h2>Obrigado!</h2>
+                <hr />
+            </header>
 
-            <form>
+            <section>
+                <span>10 de julho de 2020</span>
+                <span>Número do Pedido: 000123</span>
+                <small>Cartão de Crédito final 0604</small>
+            </section>
+                            
 
-               <img src="assets/images/user@4x.png" alt="Foto Atual" id="photo-preview" />
+            <footer class="fixed">
+                <a href="scheduless.html">Agendamentos</a>
+            </footer>
+       </main>
 
-               <input type="file" name="photo" id="file">
+       <aside>
 
-                <input type="hidden" name="x">
-                <input type="hidden" name="y">
-                <input type="hidden" name="width">
-                <input type="hidden" name="height">
+            <header>Resumo</header>
 
-                <button type="button" class="choose-photo">Escolher Foto</button>
+            <section>
 
-                <div class="toast success open">
-                    Foto alterada com sucesso!
-                    <button type="button" class="close">
-                        <span>&times;</span>
-                    </button>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Alinhamento</td>
+                            <td class="price">R$ 0,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+            <footer>
+                <button type="button" id="btn-summary-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="64.317" height="64.317" viewBox="0 0 64.317 64.317"><path d="M0,0H64.317V64.317H0Z" fill="none"/><path d="M9.779,27.858l12.3-12.274,12.3,12.274,3.779-3.779L22.079,8,6,24.079Z" transform="translate(10.079 13.439)"/></svg></button>
+
+                <div>
+                    <span>Total</span>
+                    <span class="total">R$ 0,00</span>
                 </div>
+            </footer>
 
-                <footer class="fixed">
-    
-                    <button type="submit">Salvar</button>
-        
-                </footer>
-            </form>
-
-        </main>
-
-    </section>
-
-
+       </aside>
+   </section>
    
+   <script src="bundle.js"></script>
     
 </body>
 </html>

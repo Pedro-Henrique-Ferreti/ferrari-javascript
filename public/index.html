@@ -22,15 +22,16 @@
     <meta name="msapplication-TileImage" content="assets/images/ms-icon-144x144.png">
     <meta name="theme-color" content="#E1DEDD">
     <meta name="description" content="Conheça a Ferrari Auto Center">
+    <link rel="preload" href="assets/css/main.css" as="style">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
     <header id="header">
 
-        <div class="overlay"></div>
+        <div class="overlay" data-close="menu"></div>
         <a href="index.html#home"><img src="assets/images/ferrari-logo.svg" class="logo" alt="Logo Ferrari"></a>
-        <button type="button" id="btn-open">
+        <button type="button" id="btn-open" aria-label="Menu">
             <svg id="menu-black-18dp" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                 <path id="Caminho_215" data-name="Caminho 215" d="M0,0H32V32H0Z" fill="none"/>
                 <path id="Caminho_216" data-name="Caminho 216" d="M3,18H29V16H3Zm0-5H29V11H3ZM3,6V8H29V6Z" transform="translate(0 4)"/>
@@ -39,7 +40,7 @@
 
         <div class="menu">
             <nav>
-                <button type="button" id="btn-close">
+                <button type="button" id="btn-close" data-close="menu">
                     <svg id="close-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path id="Caminho_244" data-name="Caminho 244" d="M0,0H24V24H0Z" fill="none"/>
                         <path id="Caminho_245" data-name="Caminho 245" d="M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z"/>
@@ -69,7 +70,7 @@
                         </a>
                     </div>
                     <button type="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0,0H24V24H0Z" fill="none"/><path d="M10.09,15.59,11.5,17l5-5-5-5L10.09,8.41,12.67,11H3v2h9.67ZM19,3H5A2,2,0,0,0,3,5V9H5V5H19V19H5V15H3v4a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V5A2.006,2.006,0,0,0,19,3Z" fill="#333"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#FFF" width="24" height="24" viewBox="0 0 24 24"><path d="M0,0H24V24H0Z" fill="none"/><path d="M10.09,15.59,11.5,17l5-5-5-5L10.09,8.41,12.67,11H3v2h9.67ZM19,3H5A2,2,0,0,0,3,5V9H5V5H19V19H5V15H3v4a2,2,0,0,0,2,2H19a2.006,2.006,0,0,0,2-2V5A2.006,2.006,0,0,0,19,3Z" fill="#333"/></svg>
                     </button>
                 </div>
                 <a href="auth.html" class="btn-register">Minha Conta</a>
@@ -78,26 +79,157 @@
         <hr class="italy">
     </header>
 
-    <main id="error">
+    <main id="home">
 
-        <div class="columns">
-            <div class="column">
-                <header>
-                    <h1>
-                        <span class="desktop"><b>Uno</b>&nbsp;problema ocorrido!</span>
-                        <span class="mobile">Problema ocorrido no <b>Mobile</b>!</span>
-                    </h1>
-                </header>
-                <p>Tente novamente mais tarde.</p>
-            </div>
-            <div class="column">
+        <header>
+
+            <ul>
+                <li>#3,9 L V8</li>
+                <li>#720 HP</li>
+                <li>#V12</li>
+            </ul>
+
+            <h1>SF90 Stradale</h1>
+            <a href="#home">Detalhes</a>
+
+        </header>
+
+        <section class="gallery">
+
+            <figure>
                 <picture>
-                    <source srcset="assets/images/uno.png" media="(min-width: 1200px)"/>
-                    <source srcset="assets/images/mobi@2x.png" media="(min-width: 480px)">
-                    <img src="assets/images/mobi.png" alt="Mobi" />
+                    <source srcset="assets/images/ferrari-amarela.webp" type="image/webp" /> 
+                    <img src="assets/images/ferrari-amarela.png" alt="Ferrari Interior" />
                 </picture>
+                <figcaption>
+                    <h2>Esportivas</h2>
+                    <p>Ferrari F1000</p>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <picture>
+                    <source srcset="assets/images/ferrari-interior.webp" type="image/webp" /> 
+                    <img src="assets/images/ferrari-interior.png" alt="Ferrari Amarela" />
+                </picture>
+                <figcaption>
+                    <h2>Esportivas</h2>
+                    <p>Ferrari F1000</p>
+                </figcaption>
+            </figure>
+            
+            <figure>
+                <picture>
+                    <source srcset="assets/images/ferrari-azul.webp" type="image/webp" /> 
+                    <img src="assets/images/ferrari-azul.png" alt="Ferrari Azul" />
+                </picture>
+                <figcaption>
+                    <h2>Esportivas</h2>
+                    <p>Ferrari F1000</p>
+                </figcaption>
+            </figure>
+
+        </section>
+
+        <section id="service">
+            <h2>Agende seu Serviço <small>Como Funciona?</small></h2>
+            
+            <div>
+                <div class="icons">
+
+                    <figure>
+                        <img src="assets/images/calendar.svg" alt="Escolha a Data e Hora" />
+                        <figcaption>
+                            Escolha a Data e Hora
+                        </figcaption>
+                    </figure>
+    
+                    <figure>
+                        <img src="assets/images/tools.svg" alt="Escolha o Serviço" />
+                        <figcaption>
+                            Escolha o Serviço
+                        </figcaption>
+                    </figure>
+    
+                    <figure>
+                        <img src="assets/images/payments.svg" alt="Pague Online" />
+                        <figcaption>
+                            Pague Online
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <a href="schedules-new.html">Agendar Serviço</a>
+
             </div>
-        </div>
+
+            <img src="assets/images/services.svg" alt="Serviços" />
+            
+        </section>
+
+        <section id="contact">
+            <h2>Entre em Contato</h2>
+
+            <section>
+
+                <form>
+                    <header class="page-title">
+                        <h2>Formulário</h2>
+                        <hr />
+                    </header>   
+                    <p>
+                        Envie o formulário abaixo para entrar em contato conosco
+                    </p>
+
+                    <div class="alert danger">
+                        Preencha todos os campos
+                    </div>
+
+                    <div class="fields">
+                        <div class="field">
+                            <input type="text" name="name" id="name"/>
+                            <label for="name">Nome Completo</label>
+                        </div>
+                        <div class="field">
+                            <input type="email" name="email" id="email"/>
+                            <label for="email">E-mail</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <textarea name="message" id="message"></textarea>
+                        <label for="message">Mensagem</label>
+                    </div>
+                    <div class="actions">
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form>
+                <div id="map"></div>
+            </section>
+            <hr class="divider"/>
+
+            <ul class="contacts">
+                <li>
+                    <img src="assets/images/icon-google-place.svg" alt="Icons">
+                    <p class="title">OUR HEADQUARTERS</p>
+                    <p>Modena, Itália</p>
+                </li>
+                <li>
+                    <img src="assets/images/icon-phone.svg" alt="Icons">
+                    <p class="title">SPEAK TO US</p>
+                    <p>(123) 465 7890</p>
+                </li>
+                <li>
+                    <img src="assets/images/icon-skype.svg" alt="Icons">
+                    <p class="title">MAKE A VIDEO CALL</p>
+                    <p>FerrariOnSkype</p>
+                </li>
+                <li>
+                    <img src="assets/images/icon-twitter.svg" alt="Icons">
+                    <p class="title">FOLLOW ON TWITTER</p>
+                    <p>2.3M Followers</p>
+                </li>
+            </ul>
+        </section>
 
     </main>
 
@@ -136,6 +268,7 @@
         <p>2020 © Hcode. All rights reserved.</p>
 
     </footer>
-
+    
+    <script src="bundle.js"></script>
 </body>
 </html>
