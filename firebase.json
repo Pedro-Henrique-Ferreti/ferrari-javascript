@@ -6,5 +6,12 @@
       "**/.*",
       "**/node_modules/**"
     ]
-  }
+  },
+  "apiKey": "AIzaSyCmmGs_v_xGPnJhFtjdnx6TUasq3S00yTQ",
+  "authDomain": "ferrari-firebase.firebaseapp.com",
+  "projectId": "ferrari-firebase",
+  "storageBucket": "ferrari-firebase.appspot.com",
+  "messagingSenderId": "271722336277",
+  "appId": "1:271722336277:web:bca9d1069f342afd15fe1c",
+  "measurementId": "G-ZK6XPVH073"
 }
