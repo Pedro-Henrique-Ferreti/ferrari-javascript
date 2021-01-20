@@ -1,44 +1,14 @@
 import { format, parse } from "date-fns";
 import { appendTemplate, getQueryString, setFormValues, getFormValues } from "./utils";
 import { ptBR } from 'date-fns/locale';
+import firebase from './firebase-app';
 
-const data = [
-    {
-        id: 1,
-        value: '9:00'
-    },
-    {
-        id: 2,
-        value: '10:00'
-    },
-    {
-        id: 3,
-        value: '11:00'
-    },
-    {
-        id: 4,
-        value: '12:00'
-    },
-    {
-        id: 5,
-        value: '13:00'
-    },
-    {
-        id: 6,
-        value: '14:00'
-    },
-    {
-        id: 7,
-        value: '15:00'
-    }
-];
-
-const renderTimeOptions = context => {
+const renderTimeOptions = (context, timeOptions) => {
 
     const targetElement = context.querySelector(".options");
     targetElement.innerHTML = "";
 
-    data.forEach(item => {
+    timeOptions.forEach(item => {
         appendTemplate(targetElement, "label", 
         `
             <input type="radio" name="option" value="${item.value}" />
@@ -63,11 +33,7 @@ const validateSubmitForm = context => {
 
     context.querySelectorAll("[name=option]").forEach(input => {
 
-        input.addEventListener("change", e => {
-
-            checkValue();
-
-        });
+        input.addEventListener("change", e => checkValue() );
     });
 
     context.querySelector("form").addEventListener("submit", e => {
@@ -82,8 +48,20 @@ const validateSubmitForm = context => {
 };
 
 document.querySelectorAll('#time-options').forEach(page => {
-    renderTimeOptions(page);
-    validateSubmitForm(page);
+
+    const db = firebase.firestore();
+
+    db.collection('time-options').onSnapshot(snapshot => {
+
+        const timeOptions = [];
+
+        snapshot.forEach(item => {
+            timeOptions.push(item.data())
+        });
+
+        renderTimeOptions(page, timeOptions);
+        validateSubmitForm(page);
+    });
 
     const params = getQueryString();
     const title = page.querySelector("h3");
