@@ -38,16 +38,6 @@ const renderServiceOptions = (context, serviceOptions) => {
                 });
             }
 
-            serviceSummary.map(id =>serviceOptions.filter(item => (+item.id === +id))[0]).sort((a, b) => {
-                if (a.name > b.name) {
-                    return 1;
-                } else if (a.name < b.name) {
-                    return -1;
-                } else { 
-                    return 0;
-                }
-            });
-
             renderServiceSummary(context, serviceOptions);
         });
     });
@@ -61,6 +51,15 @@ const renderServiceSummary = (context, serviceOptions) => {
     serviceSummary
     .map(id => serviceOptions
     .filter(item => Number(item.id) === Number(id))[0])
+    .sort((a, b) => {
+        if (a.name > b.name) {
+            return 1;
+        } else if (a.name < b.name) {
+            return -1;
+        } else { 
+            return 0;
+        }
+    })
     .forEach(item => {
         appendTemplate(tbodyEl, "tr", 
         `   <td>${item.name}</td>
