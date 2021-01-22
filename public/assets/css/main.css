@@ -2021,6 +2021,24 @@ header.page-title hr {
 #schedule-payment {
   position: relative;
 }
+#schedule-payment.keyboard-open {
+  margin-bottom: 0;
+  height: calc(100vh -60px);
+}
+#schedule-payment.keyboard-open > main form {
+  max-width: 100%;
+}
+#schedule-payment.keyboard-open footer {
+  position: static;
+  width: 100vw;
+  margin-left: -20px;
+}
+#schedule-payment .name {
+  text-transform: uppercase;
+}
+#schedule-payment .nametspan {
+  text-transform: uppercase;
+}
 #schedule-payment > header {
   height: 260px;
   min-height: 260px;
@@ -2079,7 +2097,19 @@ header.page-title hr {
 
 @media (min-width: 1200px) {
   #schedule-payment {
-    position: initial;
+    position: static;
+  }
+  #schedule-payment.keyboard-open {
+    margin-bottom: 0;
+    height: calc(100vh - 60px);
+  }
+  #schedule-payment.keyboard-open > main footer {
+    max-width: 1200px;
+  }
+  #schedule-payment.keyboard-open footer {
+    position: fixed;
+    width: 100%;
+    margin-left: initial;
   }
   #schedule-payment > header {
     height: 160px;

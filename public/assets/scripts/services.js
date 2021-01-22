@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import firebase from './firebase-app';
-import { appendTemplate, formatCurrency, getQueryString, onSnapshotError, setFormValues } from './utils';
+import { appendTemplate, formatCurrency, getFormValues, getQueryString, getQueryStringFromJSON, onSnapshotError, setFormValues } from './utils';
 
 let serviceSummary = [];
 
@@ -98,8 +98,18 @@ document.querySelectorAll("#schedules-services").forEach(page => {
 
     const params = getQueryString();
 
-    setFormValues(page.querySelector('form'), params);
+    const form = page.querySelector('form');
+
+    setFormValues(form, params);
 
     page.querySelector("#btn-summary-toggle")
     .addEventListener('click', () => page.querySelector('aside').classList.toggle('open'));
+
+    form.addEventListener('submit', e =>{
+        e.preventDefault();
+
+        const values = getFormValues(form);
+
+        window.location.href = `/schedules-payment.html?${getQueryStringFromJSON(values)}`;
+    })
 });
