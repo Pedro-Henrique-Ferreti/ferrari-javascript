@@ -100,7 +100,12 @@ if (authPage) {
             const values = getQueryString();
 
             if (values.url) {
-                window.location.href = "http://localhost:8080" + values.url;
+                if (window.location.hostname === 'localhost') {
+                    window.location.href = "http://localhost:8080" + values.url;
+                } else {
+                    window.location.href = "https://ferrari-firebase.web.app" + values.url;
+                }
+               
             } else {
                 window.location.href = "/";
             }
